@@ -1,0 +1,525 @@
+/* ===== CSS Variables ===== */
+:root {
+    --pk-red: #ED1C24;
+    --pk-dark: #0a0a0a;
+    --pk-gray: #2d2d2d;
+    --pk-black: #111111;
+    --pk-light: #f0f0f0;
+    --pk-lighter: #f8f8f8;
+    --pk-white: #ffffff;
+    --pk-border: #d0d0d0;
+    --pk-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+    --pk-shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.18);
+    --transition: 0.3s ease;
+}
+
+/* ===== Reset & Base ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    color: var(--pk-dark);
+    background: var(--pk-lighter);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ===== Navbar ===== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: var(--pk-black);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-text {
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--pk-white);
+    letter-spacing: 0.05em;
+}
+
+.logo-text:hover {
+    color: var(--pk-red);
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-menu a {
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.9);
+    transition: color var(--transition);
+}
+
+.nav-menu a:hover {
+    color: var(--pk-red);
+}
+
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.nav-toggle span {
+    width: 24px;
+    height: 2px;
+    background: var(--pk-white);
+    transition: var(--transition);
+}
+
+/* ===== Hero ===== */
+.hero {
+    min-height: 60vh;
+    background: linear-gradient(135deg, var(--pk-black) 0%, var(--pk-red) 50%, #8b1419 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 8rem 2rem 4rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("https://akm-img-a-in.tosshub.com/indiatoday/images/story/202403/punjab-kings-160037839-16x9_0.jpg?VersionId=oAW2vx6KM.dtjDfj1jwEIpJaqRXr1S_D&size=690:388") center/cover;
+    opacity: 0.5;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.hero h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: var(--pk-white);
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    margin-bottom: 0.5rem;
+}
+
+.hero p {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* ===== Container ===== */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.section {
+    padding: 5rem 0;
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--pk-black);
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--pk-gray);
+    margin-bottom: 3rem;
+}
+
+/* ===== Players Grid ===== */
+.players-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.player-card {
+    background: var(--pk-white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--pk-shadow);
+    border: 1px solid var(--pk-border);
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.player-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--pk-shadow-hover);
+}
+
+.player-image {
+    position: relative;
+    aspect-ratio: 1;
+    overflow: hidden;
+}
+
+.player-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.player-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: var(--pk-red);
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.player-info {
+    padding: 1.25rem;
+}
+
+.player-info h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+}
+
+.player-info p {
+    font-size: 0.85rem;
+    color: var(--pk-gray);
+}
+
+/* ===== Matches ===== */
+.matches-section {
+    background: var(--pk-light);
+}
+
+.matches-section .section-title {
+    color: var(--pk-black);
+}
+
+.matches-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.match-card {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    background: var(--pk-white);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: var(--pk-shadow);
+    border: 1px solid var(--pk-border);
+    transition: box-shadow var(--transition);
+}
+
+.match-card:hover {
+    box-shadow: var(--pk-shadow-hover);
+}
+
+.match-date {
+    min-width: 70px;
+    text-align: center;
+    background: var(--pk-red);
+    color: white;
+    padding: 0.75rem;
+    border-radius: 8px;
+}
+
+.date-day {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.date-month {
+    font-size: 0.75rem;
+    opacity: 0.9;
+}
+
+.match-details .match-teams {
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+    color: var(--pk-black);
+}
+
+.match-details .match-venue,
+.match-details .match-time {
+    font-size: 0.9rem;
+    color: var(--pk-gray);
+}
+
+/* ===== Stadium ===== */
+.stadium-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.stadium-image {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--pk-shadow);
+    border: 1px solid var(--pk-border);
+}
+
+.stadium-image img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.stadium-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: var(--pk-black);
+}
+
+.stadium-info p {
+    color: var(--pk-gray);
+    margin-bottom: 0.5rem;
+}
+
+.stadium-desc {
+    margin-top: 1rem;
+    line-height: 1.7;
+}
+
+/* ===== Other Info ===== */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.info-card {
+    background: var(--pk-white);
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid var(--pk-border);
+    box-shadow: var(--pk-shadow);
+}
+
+.info-card h4 {
+    font-size: 0.9rem;
+    color: var(--pk-red);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+}
+
+.info-card p {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    color: var(--pk-black);
+}
+
+.info-desc {
+    font-size: 0.9rem !important;
+    font-weight: 400 !important;
+    color: var(--pk-gray) !important;
+}
+
+/* ===== Join Fanpage ===== */
+.join-section {
+    background: linear-gradient(135deg, var(--pk-black) 0%, var(--pk-red) 60%, #8b1419 100%);
+}
+
+.join-section .section-title,
+.join-section .section-subtitle {
+    color: var(--pk-white);
+}
+
+.join-section .section-subtitle {
+    opacity: 0.9;
+}
+
+.join-content {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.join-text {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.95);
+    margin-bottom: 2rem;
+}
+
+.join-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.join-form input {
+    padding: 1rem 1.25rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.join-form input:focus {
+    outline: 3px solid rgba(255, 255, 255, 0.5);
+}
+
+.join-form button {
+    padding: 1rem 2rem;
+    background: var(--pk-white);
+    color: var(--pk-red);
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform var(--transition);
+}
+
+.join-form button:hover {
+    transform: scale(1.02);
+}
+
+/* ===== Footer ===== */
+.footer {
+    background: var(--pk-dark);
+    color: rgba(255, 255, 255, 0.7);
+    padding: 2rem;
+    text-align: center;
+}
+
+.footer p {
+    font-size: 0.9rem;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+    .stadium-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .stadium-image {
+        order: -1;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-toggle {
+        display: flex;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: var(--pk-black);
+        flex-direction: column;
+        padding: 2rem;
+        gap: 1rem;
+        box-shadow: var(--pk-shadow);
+        transform: translateY(-150%);
+        opacity: 0;
+        visibility: hidden;
+        transition: var(--transition);
+    }
+    
+    .nav-menu.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .nav-menu a {
+        color: rgba(255, 255, 255, 0.9);
+    }
+    
+    .players-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 1.5rem;
+    }
+    
+    .match-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    
+    .match-date {
+        min-width: 60px;
+    }
+    
+    .section {
+        padding: 3rem 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        min-height: 50vh;
+        padding: 7rem 1rem 3rem;
+    }
+    
+    .players-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    
+    .player-info h3 {
+        font-size: 0.95rem;
+    }
+    
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+}
